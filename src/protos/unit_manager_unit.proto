@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package unit_management.v1;
+
+service UnitManagementService {
+    rpc Units(UnitsRequest) returns (UnitsResponse) { }
+  }
+
+
+  message Unit {
+    uint64 id = 1;
+    string title = 2;
+    string icon = 3;
+    string plate_number = 4;
+    ConnectionState connection_state = 5;
+    string sim_number = 6;
+    bool is_archive = 7;
+    string device_type = 8;
+    string imei = 9;
+    uint32 last_point_time = 10;
+    uint32 created_at = 11;
+  }
+  message UnitsRequest {
+    uint32 limit = 1;
+    string query_filter = 2;
+    uint32 offset = 3;
+  }
+
+  message UnitsResponse {
+    uint32 total_count = 1; 
+    repeated Unit units = 2;
+  }
+
+ 
+  enum ConnectionState {
+    CONNECTION_STATE_INIT = 0;
+    CONNECTION_STATE_MESSAGE_SENT = 1;
+    CONNECTION_STATE_MESSAGE_DELIVERED = 2;
+    CONNECTION_STATE_DEVICE_CONNECTED = 3;
+    CONNECTION_STATE_DEVICE_CONFIG_SET = 4;
+    CONNECTION_STATE_DEVICE_FAILED = 5;
+  }

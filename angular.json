@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dolphin:build:production"
+              "buildTarget": "dolphin:build:production"
             },
             "development": {
-              "browserTarget": "dolphin:build:development"
+              "buildTarget": "dolphin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dolphin:build"
+            "buildTarget": "dolphin:build"
           }
         },
         "test": {

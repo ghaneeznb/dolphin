@@ -5,6 +5,7 @@ import { DolphinRoutingModule } from './dolphin-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { MonitoringComponent } from './components/monitoring/monitoring.component';
 import { UnitsComponent } from './components/units/units.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UnitsComponent } from './components/units/units.component';
   ],
   imports: [
     CommonModule,
-    DolphinRoutingModule
+    DolphinRoutingModule,
+    GoogleMapsModule
   ]
 })
 export class DolphinModule { }

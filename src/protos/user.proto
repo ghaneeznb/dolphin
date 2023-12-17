@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = ".;userproto";
+
+package userproto;
+
+service UserService { rpc SignIn(SignInRequest) returns (SignInResponse); }
+
+message SignInRequest {
+  string email = 1;
+  string password = 2;
+  // window.location.host
+  // for test purposes use 'gofleet.avl24.com' for server_address;
+  string server_address = 7;
+}
+
+message SignInResponse {
+  // JWT token: this token must be sent in the metadata of next requests
+  string token = 2;
+  AuthenticationResponseCode response_code = 4;
+}
+
+enum AuthenticationResponseCode {
+  AUTHENTICATION_RESPONSE_CODE_SUCCESS = 0;
+  AUTHENTICATION_RESPONSE_CODE_ILLEGAL_IP = 1;
+  AUTHENTICATION_RESPONSE_CODE_UNAUTHORIZED_TIME = 2;
+  AUTHENTICATION_RESPONSE_CODE_ACTIVE_SESSION_LIMIT = 3;
+  AUTHENTICATION_RESPONSE_CODE_INACTIVE_ACCOUNT = 4;
+  AUTHENTICATION_RESPONSE_CODE_COMPANY_LICENSE_EXPIRED = 5;
+}
