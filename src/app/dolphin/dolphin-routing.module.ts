@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { UnitsComponent } from './components/units/units.component';
 import { MonitoringComponent } from './components/monitoring/monitoring.component';
+import { AuthGuard } from './services/auth-gard';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'units', component: UnitsComponent },
-  { path: 'monitoring', component: MonitoringComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'units' },
+  { path: 'login', component: LoginComponent },
+  { path: 'units', component: UnitsComponent, canActivate: [AuthGuard] },
+  { path: 'monitoring', component: MonitoringComponent, canActivate: [AuthGuard] },
 
 ];
 @NgModule({

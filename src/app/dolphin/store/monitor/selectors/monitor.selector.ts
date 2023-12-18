@@ -8,18 +8,3 @@ export const GetAllMonitorSelector = createSelector(
     selectMonitor,
     (state: IMonitorState) => state.items
 );
-
-export const GetErrorMonitorSelector = createSelector(
-    selectMonitor,
-    (state: IMonitorState) => state.error
-);
-
-export const GetSuccessMonitorSelector = createSelector(
-    selectMonitor,
-    (state: IMonitorState) => state.success
-);
-
-export const GetStateMonitorSelector = createSelector(
-    selectMonitor,
-    (state: IMonitorState) => state.state
-);

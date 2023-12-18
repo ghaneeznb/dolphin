@@ -8,18 +8,3 @@ export const GetAllUnitSelector = createSelector(
     selectUnit,
     (state: IUnitState) => state.items
 );
-
-export const GetErrorUnitSelector = createSelector(
-    selectUnit,
-    (state: IUnitState) => state.error
-);
-
-export const GetSuccessUnitSelector = createSelector(
-    selectUnit,
-    (state: IUnitState) => state.success
-);
-
-export const GetStateUnitSelector = createSelector(
-    selectUnit,
-    (state: IUnitState) => state.state
-);
